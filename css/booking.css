@@ -1,0 +1,92 @@
+:root {
+  --success-color: #23cc71;
+  --error-colour: #e74c3c;
+}
+
+body {
+  margin: 1.5em;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(/images/clouds2.jpg);
+  background-size: auto;
+  background-attachment: fixed;
+}
+
+.container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 5%;
+}
+
+.h2 {
+  text-align: center;
+}
+
+.form {
+  padding: 20px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  color: #777;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  border: 2px solid rgb(233, 227, 227);
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control small {
+  color: var(--error-colour);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+.form button {
+  cursor: pointer;
+  background-color: lightblue;
+  border: 2px solid lightblue;
+  border-radius: 4px;
+  color: black;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  color: #777;
+}/*# sourceMappingURL=booking.css.map */

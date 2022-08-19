@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\booking.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <title>Book Flights</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <form action="/confirmation.html" id="form" class="form">
+
+            <h2>BOOK YOUR FLIGHT NOW!</h2>
+            
+            <div class="form-control">
+                <label for="firstName">First Name</label>
+                    <input type="text" id="firstname" placeholder="Enter First Name" >
+                <small></small>
+                <br>
+            </div>
+           
+            <div class="form-control">
+                <label for="secondName">Second Name</label>
+                <input type="text" id="secondname" placeholder="Enter Second Name"required>
+                <small></small>
+                <br>
+            </div>
+
+
+
+            <div class="form-control">
+                <label for="age">Age</label>
+                    <input type="number" id="age" required>
+                <small>Error Message</small>
+            </div>
+
+            <div class="form-control radio">
+                    <p>Please select your gender: </p>
+                <input type="radio" id="male" name="gender" value="Male" required>
+                <label for="male">MALE</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">FEMALE</label>
+                    <input type="radio" id="others" name="gender" value="Others">
+                <label for="others">Others</label> 
+                    <small>Error Message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="email1">E-mail</label>
+                    <input type="email" id="email1" placeholder="Enter Email " required>
+                    <small>Error Message</small>
+            </div>
+
+            <!-- <div class="form-control">
+                <label for="email2">Email Pass 2</label>
+                    <input type="email" id="email2" placeholder="Enter Email ">
+                    <small>Error Message</small>
+            </div>    -->
+
+            <div class="form-control">
+                <label for="phone1">Phone Number</label>
+                    <input type="text" id="phone1" placeholder="Enter pno ">
+                    <small>Error Message</small>
+            </div>
+
+            <!-- <div class="form-control">
+                <label for="phone2">phone pass 2 </label>
+                    <input type="text" id="phone2" placeholder="Enter pno ">
+                    <small>Error Message</small>
+            </div> -->
+            <button id="submit-btn" onclick="window.submitFunc()">Submit</button>
+            <button> <a href="/index.html">Back</a></button>
+        </form>
+
+    </div>
+    
+
+    <script src="/booking.js"></script>
+    <!-- <script src="/confirmation.js"></script> -->
+</body>
+</html>
