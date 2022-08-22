@@ -6,7 +6,7 @@ var phoneno = document.getElementById("phone1");
 var submitBtn = document.getElementById("submit-btn");
 
 var name_regex = /^[a-zA-Z]{0,20}$/;
-var age_regex = /^0?1[89]|0?[2-9][0-9]$/;
+var age_regex = /^(?:1[01][0-9]|1[8-9]|[2-9][0-9]|[2-9][0-9][0-9]|1[2-9][0-9])$/;
 var email_regex = /\S+@\S+\.\S+/;
 var phone_regex = /^[0-9]{10}$/;
 
@@ -49,9 +49,9 @@ function buttonRelease(){
     else{
         submitBtn.disabled = "true";
         console.log("Submit button not active");
-        submitBtn.style.opacity = "75%";
+        submitBtn.style.opacity = "55%";
         submitBtn.style.backgroundColor = "#00468b";
-
+        
     }
 }
 
@@ -61,14 +61,16 @@ function showError(input, message){
     formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
     small.innerText = message;
-
+    // small.style.color = "#C70039";
+    small.style.visibility = "visible";
 }
 
 function removeError(input){
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
     const small = formControl.querySelector('small');
-    small.innerText = "Valid";
+    small.innerText = "valid";
+    small.style.visibility = "hidden";
 }
                                                    
 // if (!allTrue) {
@@ -218,10 +220,14 @@ function submitFunc() {
     // var gender = displayRadioValue();
     // console.log("Gender:" + gender);
 
+    
+        var gender = document.querySelector('input[type=radio][name=gender]:checked');
+        console.log("Gender: " + gender.value);
+
     localStorage.setItem("FirstName", firstName.value);
     localStorage.setItem("LastName", lastName.value);
     localStorage.setItem("Age", age.value);
-    // localStorage.setItem("Gender", gender);
+    localStorage.setItem("Gender", gender.value);
     localStorage.setItem("EmailID", email.value);
     localStorage.setItem("PhoneNo", phoneno.value);
 

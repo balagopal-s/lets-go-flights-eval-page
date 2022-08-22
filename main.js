@@ -46,7 +46,7 @@ flight_details.then(response => response.json()).then(data=>{
     
     //     document.getElementById("carousel-inner").appendChild(carouselitem);
 
-    let obj = data[i];
+        let obj = data[i];
         var box = document.createElement("div");
         box.className="card border-dark mb-3";
         box.style.width="98%";
@@ -77,7 +77,11 @@ flight_details.then(response => response.json()).then(data=>{
         proceed.style.color="white";
         proceed.href = "booking.html";
         // proceed.style.transform = "translate(1100%, 0)";
-        
+        // proceed.addEventListener('click',setflightid(data[i]['id'])); 
+        // proceed.id="flight${data[i]['id']}"; 
+        // proceed.onclick="return setFlightID(${data[i]['id']});";
+        proceed.setAttribute('id',obj.flightNum);
+        proceed.setAttribute('onClick',"setflightid(this.id)");
         
         box.appendChild(flno);
         flno.appendChild(flnoh3);
@@ -95,6 +99,24 @@ flight_details.then(response => response.json()).then(data=>{
         document.getElementById("carousel-inner").appendChild(carouselitem);
 
     
+        
     }
 
+    
+
+    
+
 });
+
+function setflightid(id) {
+        var flnum = id;
+        console.log("flight id for current session" + flnum);
+        localStorage.setItem("FlightID",flnum);
+        location.href = "booking.html";
+    }
+// function openpage(id)
+//             {
+//                 var flnum = id;
+//                 sessionStorage.setItem("flnum", flnum);
+//                 window.location.href = "booking.html";
+//             }

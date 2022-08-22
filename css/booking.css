@@ -56,19 +56,44 @@ body {
   border-color: #777;
 }
 
+.form-control.success input {
+  border-color: var(--success-color);
+}
+
+.form-control.error input {
+  border-color: var(--error-colour);
+}
+
 .form-control small {
   color: var(--error-colour);
   position: absolute;
   bottom: 0;
   left: 0;
-  visibility: hidden;
 }
 
 .form-control.error small {
-  visibility: visible;
+  visibility: hidden;
+}
+
+.form-control.success small {
+  visibility: hidden;
 }
 
 .form button {
+  cursor: pointer;
+  border: 2px solid lightblue;
+  border-radius: 4px;
+  color: black;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.backbutton {
+  text-decoration: none;
   cursor: pointer;
   background-color: lightblue;
   border: 2px solid lightblue;
@@ -78,11 +103,10 @@ body {
   font-size: 16px;
   padding: 10px;
   margin-top: 20px;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
+  width: 90%;
+  text-align: center;
+  align-items: center;
+  transform: translateX(10px);
 }
 
 .radio {

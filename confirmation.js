@@ -1,12 +1,13 @@
 var fname = document.getElementById("firstname");
 var lname = document.getElementById("lastname");
 var age = document.getElementById("age");
-// var gender = document.getElementById("gender");
+var gender = document.getElementById("gender");
 var emailID = document.getElementById("email");
 var phoneNO = document.getElementById("phone");
 
 
-var flightNO = document.getElementById("fligtNo");
+var flightNO = document.getElementById("flightNo");
+console.log(flightNO);
 var ori = document.getElementById("origin");
 var destination = document.getElementById("destination");
 var departTime = document.getElementById("departt");
@@ -23,34 +24,36 @@ var PhoneNo = localStorage.getItem("PhoneNo");
 
 fname.innerHTML = firstname;
 lname.innerHTML = lastname;
-age.innerHTML = Age;
+age.innerHTML = "Age : " + Age;
 gender.innerHTML = Gender;
 emailID.innerHTML = EmailID;
-phoneNO.innerHTML = PhoneNo;
+phoneNO.innerHTML = "Phone : +91 " + PhoneNo;
 
+fetch('flights.json')
+.then(response => {return response.json();})
+.then(data => {
+populateFlightDetails(data);
+ 
+ function populateFlightDetails(details) {
 
-
-function populateFlightDetails(details) {
-
- let flightObj = details[flightID-1];
+ let flightObj = details.find(el => el.flightNum === flightID);
+ console.log(flightObj);
  const departT = new Date(flightObj.departTime)
  const arriveT = new Date(flightObj.ArrivalTime)
 
  flightNO.innerHTML = flightObj.flightNum;
- ori.innerHTML = flightObj.origin
- destination.innerHTML = flightObj.destination
+ ori.innerHTML = flightObj.origin;
+ destination.innerHTML = flightObj.destination;
  departTime.innerHTML = departT.toUTCString();
  arriveTime.innerHTML = arriveT.toUTCString();
- price.innerHTML = flightObj.price;
+ price.innerHTML = "&#8377 " + flightObj.price + "/-";
 }
 
+});
 
 
-fetch('flights.json')
- .then(response => {
- return response.json();
- })
- .then(data => {
- populateFlightDetails(data);
- });
+
+
+
+
 

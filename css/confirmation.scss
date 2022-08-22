@@ -1,0 +1,98 @@
+body {
+    font-size: 18px;
+    font-family: 'Poppins' , sans-serif;
+    background-image: url(/images/clouds2.jpg);
+    background-size: auto;
+    background-attachment: fixed;
+    // background-blend-mode: hard-light;
+    max-width: max-content;
+    margin: auto;
+    .info {
+        text-align: center;
+        transform: translateY(20px);
+    }
+    align-items: center;
+}
+
+.tinfo{
+    display: flex;
+    margin-top: 100px;
+}
+
+.name{
+    display: flex;
+    .lastname {
+        float: right;
+        transform: translateX(20%);
+    }
+}
+
+.container2 {
+    margin-left: 128px;
+}
+
+
+.fp {
+    display: flex;
+    .place {
+        transform: translateX(120px);
+        font-size: 15px;
+        p {
+            font-weight: bolder;
+            font-style: italic;
+        }
+    }
+}
+
+.logo {
+    height: 35px;
+    width: auto;
+    transform: translateY(30px);
+}
+
+.flightNo{
+    transform: translateX(13px);
+}
+
+.home {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: white;
+
+    background-color: rgb(73, 150, 218);
+    height: 30px;
+    width: 150px;
+    padding: 2px;
+    text-align: center;
+    transform: translateX(-7%);
+    transform: translateY(20px);
+    border-radius: 5px;
+    font-style:italic;
+    font-size: medium;
+    
+}
+
+.name1{
+    font-weight: bolder;
+    transform: translateX(-15px);
+    transform: translateY(30px);   
+    font-style: italic; 
+}
+
+.age {
+    transform: translateY(-20px);
+}
+
+.eid{
+    font-weight: bold;
+    font-style: italic;
+    font-size: small;
+    transform: translateY(20px);
+}
+
+.pno {
+    transform: translateY(20px);
+}
