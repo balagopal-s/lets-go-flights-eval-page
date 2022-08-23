@@ -5,6 +5,11 @@ var gender = document.getElementById("gender");
 var emailID = document.getElementById("email");
 var phoneNO = document.getElementById("phone");
 
+var secondfname = document.getElementById("sfname");
+var secondsname = document.getElementById("ssname");
+var secondage = document.getElementById("sage");
+var secondgender = document.getElementById("sgender");
+
 
 var flightNO = document.getElementById("flightNo");
 console.log(flightNO);
@@ -22,12 +27,26 @@ var Age = localStorage.getItem("Age");
 var EmailID = localStorage.getItem("EmailID");
 var PhoneNo = localStorage.getItem("PhoneNo");
 
+var p2info = document.getElementById("secondpasinfo");
+
+var fnamep2 = localStorage.getItem("FirstNameP2");
+var snamep2 = localStorage.getItem("LastNameP2");
+var agep2 = localStorage.getItem("AgeP2");
+var genderp2 = localStorage.getItem("GenderP2");
+
 fname.innerHTML = firstname;
 lname.innerHTML = lastname;
 age.innerHTML = "Age : " + Age;
 gender.innerHTML = Gender;
 emailID.innerHTML = EmailID;
 phoneNO.innerHTML = "Phone : +91 " + PhoneNo;
+
+secondfname.innerHTML = fnamep2;
+secondsname.innerHTML = snamep2;
+secondage.innerHTML = agep2;
+secondgender.innerHTML = genderp2;
+
+// p2info.innerHTML += `<h1>+</h1><div class="spname"><h2>${fnamep2}</h2><h2>${snamep2}</h2></div><h3>${agep2}</h3><h3>${genderp2}</h3>`;
 
 fetch('flights.json')
 .then(response => {return response.json();})
@@ -50,6 +69,8 @@ populateFlightDetails(data);
 }
 
 });
+
+
 
 
 

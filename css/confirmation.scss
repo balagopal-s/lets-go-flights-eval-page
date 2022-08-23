@@ -96,3 +96,57 @@ body {
 .pno {
     transform: translateY(20px);
 }
+
+.container3{
+
+    width: 100px;
+    height: 60px;
+    font-size: 14px;
+    transform: translateX(20px);
+     h1{
+        width: fit-content;
+     }
+    .spname{
+        display: flex;
+        p{
+            transform: translateY(10px);
+            // transform: translateX(-10px);
+        }
+        .sfname{
+            transform: translateX(10px);
+        }
+        .ssname{
+            transform: translateX(20px);
+        }
+    }
+}
+
+.genderage {
+    transform: translateX(10px);
+    display: flex;
+    .gendertext{
+        transform: translateX(-10px);
+    }
+    .agetext{
+        transform: translateX(23px);
+    }
+    .sage{
+        transform: translateX(30px);
+    }
+}
+
+.downarrow{
+    width: 25px;
+    height: 25px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+.partner{
+    display: flex;
+    text-align: right;
+    text-decoration: none;
+    font-weight: bold;
+
+}

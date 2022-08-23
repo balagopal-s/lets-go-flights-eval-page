@@ -7,13 +7,15 @@ body {
     margin: 1.5em;  
     font-size: 18px;
     font-family: 'Poppins' , sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     min-height: 100vh;
     background-image: url(/images/clouds2.jpg);
     background-size: auto;
     background-attachment: fixed;
+    width: 50%;
+    transform: translateX(50%);
 }
 
 .container {
@@ -31,6 +33,7 @@ body {
     .h2{
         text-align: center;
     }
+    display: none;
 }
 
 .h2{
@@ -124,4 +127,8 @@ body {
     display: inline-flex;
     align-items: center;
     color: #777;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
