@@ -7,8 +7,9 @@ var submitBtn = document.getElementById("submit-btn");
 
 var name_regex = /^[a-zA-Z]{0,20}$/;
 var age_regex = /^(?:1[01][0-9]|1[8-9]|[2-9][0-9]|[2-9][0-9][0-9]|1[2-9][0-9])$/;
-var email_regex = /\S+@\S+\.\S+/;
+var email_regex = /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
 var phone_regex = /^[0-9]{10}$/;
+
 
 submitBtn.disabled = "true";
 

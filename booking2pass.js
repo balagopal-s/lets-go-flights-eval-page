@@ -7,7 +7,6 @@ var phoneno = document.getElementById("phone1");
 var submitBtn = document.getElementById("submit-btn");
 
 //get details of second passenger
-var gender2 = document.querySelector('input[type=radio][name=gender2]:checked');
 var firstNamep2 = document.getElementById("firstnamep2");
 var lastNamep2 = document.getElementById("secondnamep2");
 var agep2 = document.getElementById("agep2");
@@ -260,23 +259,7 @@ function invalid(element){
 }
 
 
-function submitFunc() {
 
-    var gender = document.querySelector('input[type=radio][name=gender]:checked');
-    console.log("Gender: " + gender.value);
-
-    localStorage.setItem("FirstName", firstName.value);
-    localStorage.setItem("LastName", lastName.value);
-    localStorage.setItem("Age", age.value);
-    localStorage.setItem("Gender", gender.value);
-    localStorage.setItem("EmailID", email.value);
-    localStorage.setItem("PhoneNo", phoneno.value);
-
-    console.log("Calling Confirmation Page");
-
-    location.href = "confirmation.html";
-
-}
 
 //Form 2
 function newpass() {
@@ -287,22 +270,37 @@ function newpass() {
     subtn.parentNode.removeChild(subtn);
     localStorage.setItem("pass2exist",1);
 }
-localStorage.setItem("pass2exist",0);
-
-    function submitFunc2() {
-    console.log("in subitfunc2");
-    localStorage.setItem("FirstNameP2", firstNamep2.value);
-    localStorage.setItem("LastNameP2", lastNamep2.value);
-    localStorage.setItem("AgeP2", agep2.value);
-    localStorage.setItem("GenderP2", gender2.value);
     
-    console.log("Calling Confirmation Page");
-     
-    location.href = "confirmation.html";
- 
-    }
+//setting flag default for 1 pass only
+localStorage.setItem("pass2exist",0);
+   
 
-function submitbutton () {
-    submitFunc();
-    submitFunc2();
-}
+//function for submit action
+    function submitbutton () {
+    
+        
+        var gender2 = document.querySelector('input[type=radio][name=gender2]:checked');
+        console.log("in subitfunc2");
+        
+        localStorage.setItem("FirstNameP2", firstNamep2.value);
+        localStorage.setItem("LastNameP2", lastNamep2.value);
+        localStorage.setItem("AgeP2", agep2.value);
+        console.log(gender2.value);
+        localStorage.setItem("GenderP2", gender2.value);
+
+        var gender = document.querySelector('input[type=radio][name=gender]:checked');
+        console.log("Gender: " + gender.value);
+    
+        localStorage.setItem("FirstName", firstName.value);
+        localStorage.setItem("LastName", lastName.value);
+        localStorage.setItem("Age", age.value);
+        localStorage.setItem("Gender", gender.value);
+        localStorage.setItem("EmailID", email.value);
+        localStorage.setItem("PhoneNo", phoneno.value);
+    
+        console.log("Calling Confirmation Page");
+    
+        location.href = "confirmation.html";
+
+
+    }
