@@ -4,7 +4,6 @@ var age = document.getElementById("age");
 var email = document.getElementById("email1");
 var phoneno = document.getElementById("phone1");
 var submitBtn = document.getElementById("submit-btn");
-var gender2 = document.querySelector('input[type=radio][name=gender2]:checked');
 var firstNamep2 = document.getElementById("firstnamep2");
 var lastNamep2 = document.getElementById("secondnamep2");
 var agep2 = document.getElementById("agep2");
@@ -12,7 +11,7 @@ var submitBtn2 = document.getElementById("submit-btn2");
 
 var name_regex = /^[a-zA-Z]{0,20}$/;
 var age_regex = /^(?:1[01][0-9]|1[8-9]|[2-9][0-9]|[2-9][0-9][0-9]|1[2-9][0-9])$/;
-var email_regex = /\S+@\S+\.\S+/;
+var email_regex = /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
 var phone_regex = /^[0-9]{10}$/;
 
 submitBtn.disabled = "true";
@@ -79,7 +78,6 @@ function validateFirstName() {
     if (name_regex.test(firstName.value)) {
         valid(firstName);
         small.innerHTML="";
-        // removeError(firstName);
         inputValidator.firstn = true;
         buttonRelease();
     }
@@ -87,7 +85,6 @@ function validateFirstName() {
     else {
         invalid(firstName);
         inputValidator.firstn = false;
-        // showError(firstName, 'Cannot be empty, Alphabets only, Max 20 characters');
         small.innerHTML="20 Characters Maximum";
     }
 }
@@ -101,7 +98,6 @@ function validateLastName() {
     if (name_regex.test(lastName.value)) {
         valid(lastName);
         small.innerHTML="";
-        //  removeError(lastName);
          inputValidator.lastn = true;
         buttonRelease();
         
@@ -110,7 +106,6 @@ function validateLastName() {
 
         invalid(lastName);
         inputValidator.lastn = false;
-        // showError(lastName, 'Cannot be empty, Alphabets only, Max 20 characters');
         small.innerHTML="20 Characters Maximum";
     }
 
@@ -123,7 +118,6 @@ function validateAge() {
 
     if (age_regex.test(age.value)) {
         valid(age);
-        // removeError(age);
         small.innerHTML="";
         inputValidator.ageperson = true;
         buttonRelease();
@@ -133,7 +127,6 @@ function validateAge() {
 
         invalid(age);
         inputValidator.ageperson = false;
-        // showError(age, 'Enter a Valid Age. You have to be an adult to book');
         small.innerHTML="Enter a valid age, 18 and above";
     }
 
@@ -148,14 +141,12 @@ function validateEmail() {
         valid(email);
         inputValidator.emailid = true;
         small.innerHTML="";
-        // removeError(email);
         buttonRelease();
     }
     else {
 
         invalid(email);
         inputValidator.emailid = false;
-        // showError(email, 'Required Field');
         small.innerHTML="Enter a valid email";
     }
 
@@ -172,13 +163,11 @@ function validatePhoneNo() {
         inputValidator.phonenumber = true;
         buttonRelease();
         small.innerHTML="";
-        // removeError(phoneno);
     }
     else {
 
         invalid(phoneno);
         inputValidator.phonenumber = false;
-        // showError(phoneno, 'Please enter a Valid Phone Number (10 Digits)');
         small.innerHTML="Enter a vlid phone number";
     }
 
@@ -198,23 +187,6 @@ function invalid(element){
 }
 
 
-function submitFunc() {
-
-    var gender = document.querySelector('input[type=radio][name=gender]:checked');
-    console.log("Gender: " + gender.value);
-
-    localStorage.setItem("FirstName", firstName.value);
-    localStorage.setItem("LastName", lastName.value);
-    localStorage.setItem("Age", age.value);
-    localStorage.setItem("Gender", gender.value);
-    localStorage.setItem("EmailID", email.value);
-    localStorage.setItem("PhoneNo", phoneno.value);
-
-    console.log("Calling Confirmation Page");
-
-    location.href = "confirmation.html";
-
-}
 
 function newpass() {
 
@@ -225,20 +197,29 @@ function newpass() {
     
 }
 
-    function submitFunc2() {
-    
-    localStorage.setItem("FirstNameP2", firstNamep2.value);
-    localStorage.setItem("LastNameP2", lastNamep2.value);
-    localStorage.setItem("AgeP2", agep2.value);
-    localStorage.setItem("GenderP2", gender2.value);
-
-    console.log("Calling Confirmation Page");
-     
-    location.href = "confirmation.html";
  
-    }
 
-function submitbutton () {
-    submitFunc();
-    submitFunc2();
+function submitbutton() {
+        var gender = document.querySelector('input[type=radio][name=gender]:checked');
+        console.log("Gender: " + gender.value);
+
+        localStorage.setItem("FirstName", firstName.value);
+        localStorage.setItem("LastName", lastName.value);
+        localStorage.setItem("Age", age.value);
+        localStorage.setItem("Gender", gender.value);
+        localStorage.setItem("EmailID", email.value);
+        localStorage.setItem("PhoneNo", phoneno.value);
+
+
+        var gender2 = document.querySelector('input[type=radio][name=gender2]:checked');
+        console.log("Gender: " + gender2.value);
+        
+        localStorage.setItem("FirstNameP2", firstNamep2.value);
+        localStorage.setItem("LastNameP2", lastNamep2.value);
+        localStorage.setItem("AgeP2", agep2.value);
+        localStorage.setItem("GenderP2", gender2.value);
+    
+        console.log("Calling Confirmation Page");
+         
+        location.href = "confirmation.html";
 }

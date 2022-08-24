@@ -46,12 +46,10 @@ firstNamep2.addEventListener('input', validateFirstName2)
 lastNamep2.addEventListener('input', validateLastName2)
 agep2.addEventListener('input', validateAge2)
 
-// let allTrue = Object.keys(inputValidator).every((item) => {
-//     return inputValidator[item] === true
-// });
 
 
 
+//function to release the button
 function buttonRelease(){
 
     console.log(inputValidator);
@@ -143,7 +141,7 @@ function validateAge() {
 
 }
 
-//for passenger FORM 2
+//Validation for passenger FORM 2
 
 function validateFirstName2() {
 
@@ -280,6 +278,7 @@ function submitFunc() {
 
 }
 
+//Form 2
 function newpass() {
 
     var form2 = document.getElementById("form2");

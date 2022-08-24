@@ -46,7 +46,7 @@ secondsname.innerHTML = snamep2;
 secondage.innerHTML = agep2;
 secondgender.innerHTML = genderp2;
 
-// p2info.innerHTML += `<h1>+</h1><div class="spname"><h2>${fnamep2}</h2><h2>${snamep2}</h2></div><h3>${agep2}</h3><h3>${genderp2}</h3>`;
+//fetching flight info
 
 fetch('flights.json')
 .then(response => {return response.json();})
