@@ -51,9 +51,9 @@ secondgender.innerHTML = genderp2;
 fetch('flights.json')
 .then(response => {return response.json();})
 .then(data => {
-populateFlightDetails(data);
+buildFlightDetails(data);
  
- function populateFlightDetails(details) {
+ function buildFlightDetails(details) {
 
  let flightObj = details.find(el => el.flightNum === flightID);
  console.log(flightObj);
@@ -66,6 +66,9 @@ populateFlightDetails(data);
  departTime.innerHTML = departT.toUTCString();
  arriveTime.innerHTML = arriveT.toUTCString();
  price.innerHTML = "&#8377 " + flightObj.price + "/-";
+ if(flag==1) {
+    price.innerHTML= "&#8377 " + flightObj.price*2 + "/-";
+ }
 }
 
 });
