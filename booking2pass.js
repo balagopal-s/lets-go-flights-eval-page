@@ -1,3 +1,4 @@
+//get details of first passenger
 var firstName = document.getElementById("firstname");
 var lastName = document.getElementById("secondname");
 var age = document.getElementById("age");
@@ -5,10 +6,20 @@ var email = document.getElementById("email1");
 var phoneno = document.getElementById("phone1");
 var submitBtn = document.getElementById("submit-btn");
 
+//get details of second passenger
+var gender2 = document.querySelector('input[type=radio][name=gender2]:checked');
+var firstNamep2 = document.getElementById("firstnamep2");
+var lastNamep2 = document.getElementById("secondnamep2");
+var agep2 = document.getElementById("agep2");
+var submitBtn2 = document.getElementById("submit-btn2");
+
 var name_regex = /^[a-zA-Z]{0,20}$/;
 var age_regex = /^(?:1[01][0-9]|1[8-9]|[2-9][0-9]|[2-9][0-9][0-9]|1[2-9][0-9])$/;
 var email_regex = /\S+@\S+\.\S+/;
 var phone_regex = /^[0-9]{10}$/;
+
+submitBtn.disabled = "true";
+// submitBtn2.disabled = "true";
 
 let inputValidator = {
     "firstn": false,
@@ -18,17 +29,28 @@ let inputValidator = {
     "phonenumber": false
 };
 
+let inputValidator2 = {
+    "firstn": false,
+    "lastn": false,
+    "ageperson": false
+};
+
+//listening to fields
 firstName.addEventListener('input', validateFirstName)
 lastName.addEventListener('input', validateLastName)
 age.addEventListener('input', validateAge)
 email.addEventListener('input', validateEmail)
 phoneno.addEventListener('input', validatePhoneNo)
 
+firstNamep2.addEventListener('input', validateFirstName2)
+lastNamep2.addEventListener('input', validateLastName2)
+agep2.addEventListener('input', validateAge2)
+
 // let allTrue = Object.keys(inputValidator).every((item) => {
 //     return inputValidator[item] === true
 // });
 
-submitBtn.disabled=true;
+
 
 function buttonRelease(){
 
@@ -39,7 +61,7 @@ function buttonRelease(){
     console.log(result);
     
     if(result){
-
+        
         submitBtn.removeAttribute("disabled");
         console.log("Submit button active");
         submitBtn.style.opacity = "100%";
@@ -52,123 +74,162 @@ function buttonRelease(){
         submitBtn.style.opacity = "55%";
         submitBtn.style.backgroundColor = "#00468b";
         
+        }
     }
-}
 
-function showError(input, message){
-     
-    const formControl = input.parentElement;
-    formControl.className = 'form-control error';
-    const small = formControl.querySelector('small');
-    small.innerText = message;
-    // small.style.color = "#C70039";
-    small.style.visibility = "visible";
-}
-
-function removeError(input){
-    const formControl = input.parentElement;
-    formControl.className = 'form-control success';
-    const small = formControl.querySelector('small');
-    small.innerText = "valid";
-    small.style.visibility = "hidden";
-}
                                                    
-// if (!allTrue) {
-
-//     console.log("Submit Button Active");
-//     submitBtn.disabled = "false";
-// }
-
-// else {
-
-//     console.log("Submit Button not active");
-//     submitBtn.disabled = "true";
-// }
-
-
-
+//for passenger FORM1
 
 function validateFirstName() {
+
+    var small=document.getElementById("fner");
 
     console.log(firstName.value);
 
     if (name_regex.test(firstName.value)) {
         valid(firstName);
+        small.innerHTML="";
         inputValidator.firstn = true;
         buttonRelease();
-        removeError(firstName);
     }
     
     else {
-
         invalid(firstName);
         inputValidator.firstn = false;
-        showError(firstName, 'Cannot be empty, Alphabets only, Max 20 characters');
+        small.innerHTML="20 Characters Maximum";
     }
 }
 
 function validateLastName() {
 
+    var small=document.getElementById("sner");
+
     console.log(lastName.value);
 
     if (name_regex.test(lastName.value)) {
         valid(lastName);
-        inputValidator.lastn = true;
+        small.innerHTML="";
+         inputValidator.lastn = true;
         buttonRelease();
-        removeError(lastName);
-
+        
     }
     else {
 
         invalid(lastName);
         inputValidator.lastn = false;
-        showError(lastName, 'Cannot be empty, Alphabets only, Max 20 characters');
-
+        small.innerHTML="20 Characters Maximum";
     }
 
 }
 
 function validateAge() {
+    var small=document.getElementById("aer");
 
     console.log(age.value);
 
     if (age_regex.test(age.value)) {
         valid(age);
+        small.innerHTML="";
         inputValidator.ageperson = true;
         buttonRelease();
-        removeError(age);
 
     }
     else {
 
         invalid(age);
         inputValidator.ageperson = false;
-        showError(age, 'Enter a Valid Age. You have to be and adult to book');
+        small.innerHTML="Enter a valid age, 18 and above";
     }
 
 }
 
+//for passenger FORM 2
+
+function validateFirstName2() {
+
+    var small=document.getElementById("fner2");
+
+    console.log(firstNamep2.value);
+
+    if (name_regex.test(firstNamep2.value)) {
+        valid(firstNamep2);
+        small.innerHTML="";
+        inputValidator2.firstn = true;
+        buttonRelease();
+    }
+    
+    else {
+        invalid(firstNamep2);
+        inputValidator2.firstn = false;
+        small.innerHTML="20 Characters Maximum";
+    }
+}
+
+function validateLastName2() {
+
+    var small=document.getElementById("sner2");
+
+    console.log(lastNamep2.value);
+
+    if (name_regex.test(lastNamep2.value)) {
+        valid(lastNamep2);
+        small.innerHTML="";
+         inputValidator2.lastn = true;
+        
+    }
+    else {
+
+        invalid(lastNamep2);
+        inputValidator2.lastn = false;
+        small.innerHTML="20 Characters Maximum";
+    }
+
+}
+
+function validateAge2() {
+    var small=document.getElementById("aer2");
+
+    console.log(agep2.value);
+
+    if (age_regex.test(agep2.value)) {
+        valid(agep2);
+        small.innerHTML="";
+        inputValidator2.ageperson = true;
+
+    }
+    else {
+
+        invalid(agep2);
+        inputValidator2.ageperson = false;
+        small.innerHTML="Enter a valid age, 18 and above";
+    }
+
+}
+
+
+//phone and email validation for FORM1
 function validateEmail() {
+    var small=document.getElementById("emr");
 
     console.log(email.value);
 
     if (email_regex.test(email.value)) {
         valid(email);
         inputValidator.emailid = true;
-        buttonRelease();
-        removeError(email);
+        small.innerHTML="";
     }
     else {
 
         invalid(email);
         inputValidator.emailid = false;
-        showError(email, 'Required Field');
-
+        small.innerHTML="Enter a valid email";
     }
 
 }
 
 function validatePhoneNo() {
+
+    var small=document.getElementById("pner");
 
     console.log(phoneno.value);
 
@@ -176,13 +237,13 @@ function validatePhoneNo() {
         valid(phoneno);
         inputValidator.phonenumber = true;
         buttonRelease();
-        removeError(phoneno);
+        small.innerHTML="";
     }
     else {
 
         invalid(phoneno);
         inputValidator.phonenumber = false;
-        showError(phoneno, 'Please enter a Valid Phone Number (10 Digits)');
+        small.innerHTML="Enter a vlid phone number";
     }
 
 }
@@ -200,29 +261,11 @@ function invalid(element){
 
 }
 
-// form.addEventListener('submit', function(e){
-//     e.preventDefault();
-//     console.log('clicked');
-
-//     if(firstname.value === '') {
-//         showError(firstname, 'firstname is required');
-//     }
-    
-//     if(secondname.value === '') {
-//         showError(secondname, 'secondname is required');
-//     }
-    
-
-// });
 
 function submitFunc() {
 
-    // var gender = displayRadioValue();
-    // console.log("Gender:" + gender);
-
-    
-        var gender = document.querySelector('input[type=radio][name=gender]:checked');
-        console.log("Gender: " + gender.value);
+    var gender = document.querySelector('input[type=radio][name=gender]:checked');
+    console.log("Gender: " + gender.value);
 
     localStorage.setItem("FirstName", firstName.value);
     localStorage.setItem("LastName", lastName.value);
@@ -237,4 +280,30 @@ function submitFunc() {
 
 }
 
+function newpass() {
 
+    var form2 = document.getElementById("form2");
+    form2.style.display = "block";
+    var subtn = document.getElementById("submit-btn");
+    subtn.parentNode.removeChild(subtn);
+    localStorage.setItem("pass2exist",1);
+}
+localStorage.setItem("pass2exist",0);
+
+    function submitFunc2() {
+    console.log("in subitfunc2");
+    localStorage.setItem("FirstNameP2", firstNamep2.value);
+    localStorage.setItem("LastNameP2", lastNamep2.value);
+    localStorage.setItem("AgeP2", agep2.value);
+    localStorage.setItem("GenderP2", gender2.value);
+    
+    console.log("Calling Confirmation Page");
+     
+    location.href = "confirmation.html";
+ 
+    }
+
+function submitbutton () {
+    submitFunc();
+    submitFunc2();
+}

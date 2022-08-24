@@ -70,8 +70,23 @@ populateFlightDetails(data);
 
 });
 
+    
+    var flag = localStorage.getItem("pass2exist");
+    console.log("checkpass is called, flag value = " + flag);
+    
+    if (flag=="0"){
+        p2info.style.display = "none";
+    }
+    
+    else {
+        p2info.style.display = "block";
+    }
 
 
+
+function clearls(){
+    localStorage.clear();
+}
 
 
 
